@@ -2,6 +2,7 @@ package solutions;
 
 import java.io.File;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class d02 {
     public static void main(String[] args) throws Throwable{
@@ -12,42 +13,62 @@ public class d02 {
 
     public static void part1() throws Throwable{
         Scanner input = new Scanner(new File("inputs\\d02p01.txt"));
-        int[] levels = new int[5];
         int totalSafe = 0;
+        Scanner line;
 
         while(input.hasNextLine()){
-            for (int i = 0; i < levels.length; i++) {
-                levels[i] = input.nextInt();
+            line = new Scanner(input.nextLine());
+            ArrayList<Integer> levels = new ArrayList<Integer>();
+            while(line.hasNext()){
+                levels.add(line.nextInt());
             }
             if((increasing(levels) || decreasing(levels)) && notExtreme(levels)){
                 totalSafe++;
             }
         }
         System.out.println(totalSafe);
+
+        input.close();
     }
 
-    public static boolean increasing(int[] levels){
-        for (int i = 1; i < levels.length; i++) {
-            if(levels[i-1] > levels[i]) return false;
+    public static boolean increasing(ArrayList<Integer> levels){
+        for (int i = 1; i < levels.size(); i++) {
+            if(levels.get(i-1) > levels.get(i)) return false;
         }
         return true;
     }
 
-    public static boolean decreasing(int[] levels){
-        for (int i = 1; i < levels.length; i++) {
-            if(levels[i-1] < levels[i]) return false;
+    public static boolean decreasing(ArrayList<Integer> levels){
+        for (int i = 1; i < levels.size(); i++) {
+            if(levels.get(i-1) < levels.get(i)) return false;
         }
         return true;
     }
 
-    public static boolean notExtreme(int[] levels){
-        for (int i = 1; i < levels.length; i++) {
-            if(Math.abs(levels[i-1] - levels[i]) > 3) return false;
+    public static boolean notExtreme(ArrayList<Integer> levels){
+        for (int i = 1; i < levels.size(); i++) {
+            if(Math.abs(levels.get(i-1) - levels.get(i)) > 3 ||Math.abs(levels.get(i-1) - levels.get(i)) < 1) return false;
         }
         return true;
     }
 
 
-    public static void part2(){}
+    public static void part2() throws Throwable{
+
+
+        Scanner input = new Scanner(new File("inputs\\d02p01.txt"));
+        int totalSafe = 0;
+        Scanner line;
+
+        while(input.hasNextLine()){
+            line = new Scanner(input.nextLine());
+            ArrayList<Integer> levels = new ArrayList<Integer>();
+            while(line.hasNext()){
+                levels.add(line.nextInt());
+            }
+        }
+
+
+    }
 
 }
