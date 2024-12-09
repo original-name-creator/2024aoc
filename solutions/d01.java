@@ -1,6 +1,7 @@
 package solutions;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class d01 {
 
 
 
-    static void part1() throws Exception{
+    static void part1() throws Throwable{
         Scanner input = new Scanner(new File("inputs\\d01p01.txt"));
         PriorityQueue<Integer> leftList = new PriorityQueue<>();
         PriorityQueue<Integer> rightList = new PriorityQueue<>();
@@ -34,6 +35,7 @@ public class d01 {
         }
         
         System.out.println("Part 1: " + diff);
+        input.close();
     }
 
 
@@ -67,6 +69,7 @@ public class d01 {
         }
 
         System.out.println("Part 2: " + tot);
+        input.close();
 
     }
 
