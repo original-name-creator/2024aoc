@@ -66,9 +66,28 @@ public class d02 {
             while(line.hasNext()){
                 levels.add(line.nextInt());
             }
+            if(safe(levels)) totalSafe++;
         }
 
+        System.out.println(totalSafe);
 
     }
+
+    public static boolean safe(ArrayList<Integer> levels){
+            for (int i = 0; i < levels.size(); i++) {
+                ArrayList<Integer> tempList = new ArrayList<>(levels);
+                tempList.remove(i);
+                if(isSafe(tempList)) return true;
+            }
+            return false;
+    }
+
+    public static boolean isSafe(ArrayList<Integer> levels){
+        if((increasing(levels) || decreasing(levels)) && notExtreme(levels)){
+            return true;
+        }
+        return false;
+    }
+
 
 }
