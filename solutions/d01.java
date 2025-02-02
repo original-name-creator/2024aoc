@@ -10,6 +10,8 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.io.File;
 
+//completes aoc1 both parts
+
 public class d01 {
     public static void main(String[] args) throws Throwable{
         part1();
